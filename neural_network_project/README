@@ -1,0 +1,102 @@
+Dogs and Cats Image Recognition Neural Netowork:
+
+Creating a neural network to identify dogs and cats. 
+First time experience with neural networks and image
+recognition.
+
+Final Project
+
+Nick Oka & Henzi Kou
+
+CIS 330: C/C++
+Professor Jee Whan Choi
+
+Spring 2019
+
+Credits:
+
+Code sourced from OpenNN, an open source neural network library
+and Abner M. C. Araujo, an independent author/coder. Roberto Lopez
+wrote code on many different use cases within the NN. Araujo helped 
+us on how to use openCV and how to read in many files for training and testing.
+
+OpenNN's website:
+http://www.opennn.net
+
+Araujo's website:
+https://picoledelimao.github.io
+
+Code was pulled from both sources and altered to fit our team's wants in
+training our network with dogs and cats and testing based on different test
+photos that can be manually entered in by the user; this is completed one 
+photo at a time.
+
+Usage:
+
+Compile using:
+
+
+	make
+
+or
+
+	g++ dogs_cats_NN.cpp -std=c++0x  -I/usr/local/include/opencv 
+	-I/usr/local/include -L/usr/local/lib -lopencv_shape -lopencv_stitching 
+	-lopencv_objdetect -lopencv_superres -lopencv_videostab -lopencv_calib3d 
+	-lopencv_features2d -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs 
+	-lopencv_video -lopencv_photo -lopencv_ml -lopencv_imgproc -lopencv_flann 
+	-lopencv_core -o run
+
+
+Run using:
+
+
+	./run <TRAINING_IMAGE_DIRECTORY> <TRAINING PERCENTAGE> <TRAINING_PERCENTAGE> 
+			<TESTING METHOD> <NETWORK_INPUT_LAYER_SIZE>
+
+	
+	1. <TRAINING_IMAGE_DIRECTORY> -> Directory of the training images.
+	2. <TRAINING_PERCENTAGE> -> Percent of training directory to be trained (0,1.00]
+	3. <TESTING METHOD> -> 1 -> Equal percentage training/testing (0, 0.50]
+						   2 -> Train/Test Ratio. Will read tthe entire train directory
+						   3 -> Individual image test
+	4. <NETWORK_INPUT_LAYER_SIZE> -> Default is 510. Input to use a different value.
+
+When running on ix-dev server:
+
+The program does not include a window pop-up of the image that is being tested. Not able to produce the
+image window on the ix-dev server.
+
+Compile using:
+
+	make ix-dev
+
+or 
+
+	g++ dogs_cats_NN_ix_dev.cpp -std=c++0x  -I/usr/local/include/opencv 
+	-I/usr/local/include -L/usr/local/lib -lopencv_shape -lopencv_stitching 
+	-lopencv_objdetect -lopencv_superres -lopencv_videostab -lopencv_calib3d 
+	-lopencv_features2d -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs 
+	-lopencv_video -lopencv_photo -lopencv_ml -lopencv_imgproc -lopencv_flann 
+	-lopencv_core -o run
+
+Running the program will be the same.
+
+Was not able to test full functionality on ix-dev since I was unable to have all images because
+of lack of disk space. 
+
+
+Possible Improvements:
+Storing the vocabulary and the mlp to files so testing can be completed without training the network each
+time.
+
+Multiple attempts were made but wasn't able to successfully complete.
+
+Results (changes from after the project report):
+
+The results have been on average above 50% and confident that it is better than chance.
+Results are much better than when presented in class as the class id was incorrectly identified. 
+
+
+
+
